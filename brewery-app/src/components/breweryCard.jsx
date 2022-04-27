@@ -10,7 +10,6 @@ class BreweryCard extends Component {
     }
 
     checkAddress(address){
-        console.log(address);
         if (address !== null){
             return  <p className="card-text">
                         {this.props.brewery.street} <br /> 
@@ -26,6 +25,15 @@ class BreweryCard extends Component {
         }
     }
 
+    checkWebsite(website) {
+        if (website !== null){
+            return <a href={website} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Website Link</a>
+        }
+        else{
+            return <a href={website} target="_blank" rel="noopener noreferrer" className="btn btn-danger">No Website Found</a>
+        }
+    }
+
     formatPhoneNumber(phoneNumberString) {
         let cleaned = ('' + phoneNumberString).replace(/\D/g, '');
         let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
@@ -37,24 +45,24 @@ class BreweryCard extends Component {
 
     render() { 
         return (
-
-            <div className="card text-center" style={{width: '25rem', margin: '25px 25px 25px 25px'} }>
-                <div className="card-header">
-                    <h5 className="card-title">{this.props.brewery.name}</h5>
-                    <h6 className="card-subtitle text-muted">{this.capitalize(this.props.brewery.brewery_type)}</h6>
-                </div>
-                <div className="card-body">
-                    <h5 className="card-title">Special title treatment</h5>
-                    {this.checkAddress(this.props.brewery.street)}
-                    <p className="card-text">
-                        {this.formatPhoneNumber(this.props.brewery.phone)}
-                    </p>
-                    <a href={this.props.brewery.website_url} className="btn btn-primary">Website Link</a>
-                </div>
-                <div className="card-footer text-muted">
-                    Updated At: {this.props.brewery.updated_at}
-                    <br /> 
-                    Created At: {this.props.brewery.created_at}
+            <div className="col-8 col-md-4 cold-lg-2">
+                <div className="card text-center" style={{width: '25rem'} }>
+                    <div className="card-header">
+                        <h5 className="card-title">{this.props.brewery.name}</h5>
+                    </div>
+                    <div className="card-body">
+                        <h5 className="card-title">{this.capitalize(this.props.brewery.brewery_type)}</h5>
+                        {this.checkAddress(this.props.brewery.street)}
+                        <p className="card-text">
+                            {this.formatPhoneNumber(this.props.brewery.phone)}
+                        </p>
+                        {this.checkWebsite(this.props.brewery.website_url)}
+                    </div>
+                    <div className="card-footer text-muted">
+                        Updated At: {this.props.brewery.updated_at}
+                        <br /> 
+                        Created At: {this.props.brewery.created_at}
+                    </div>
                 </div>
             </div>
         );

@@ -20,9 +20,14 @@ class Brewery extends Component {
     render() { 
         return (
             <div>
-                {this.state.breweries.map(brewery => (
-                    <BreweryCard key={brewery.id} brewery={brewery}/>
-                ))}
+                <ul>
+                    <li>hey</li>
+                </ul>
+                <div className="row g-5">
+                    {this.state.breweries.map(brewery => (
+                        <BreweryCard key={brewery.id} brewery={brewery}/>
+                    ))}
+                </div>
             </div>
         );
     }

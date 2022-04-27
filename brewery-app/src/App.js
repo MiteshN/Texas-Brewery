@@ -1,8 +1,10 @@
 import Brewery from "./components/brewery";
+import NavBar from "./components/navbar";
 
 function App() {
   return (
-    <div>
+    <div className="container">
+      <NavBar />
       <Brewery />
     </div>
   );
