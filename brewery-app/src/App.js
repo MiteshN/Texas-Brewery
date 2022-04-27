@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import Brewery from "./components/brewery";
 
 function App() {
   return (
     <div>
-      
+      <Brewery />
     </div>
   );
 }
