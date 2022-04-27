@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import BreweryCard from "./breweryCard";
 
 class Brewery extends Component { 
     state = { 
@@ -19,26 +20,9 @@ class Brewery extends Component {
     render() { 
         return (
             <div>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>city</th>
-                            <th>state</th>
-                            <th>country</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.breweries.map(brewery => (
-                            <tr key={brewery.id}>
-                                <td>{brewery.name}</td>
-                                <td>{brewery.city}</td>
-                                <td>{brewery.state}</td>
-                                <td>{brewery.country}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                {this.state.breweries.map(brewery => (
+                    <BreweryCard key={brewery.id} brewery={brewery}/>
+                ))}
             </div>
         );
     }
