@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Brewery from './brewery';
-
 
 class BreweryCard extends Component {
     state = {  } 
@@ -46,7 +44,7 @@ class BreweryCard extends Component {
     render() { 
         return (
             <div className="col-8 col-md-4 cold-lg-2">
-                <div className="card text-center" style={{width: '25rem'} }>
+                <div className="card text-center" style={{width: '25rem', height: '23rem'} }>
                     <div className="card-header">
                         <h5 className="card-title">{this.props.brewery.name}</h5>
                     </div>
